@@ -1,4 +1,6 @@
-# Polarity STAXX Integration
+# Polarity STAXX Integration (beta)
+
+![image](https://img.shields.io/badge/status-beta-green.svg)
 
 Polarity's STAXX integration gives users access to automated MD5, SHA1, SHA256, IPv4, IPv6 and Domain lookups within Anomali's STAXX platform..
 
