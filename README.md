@@ -31,11 +31,11 @@ A string value which specifies the minimum severity level required for an indica
 
 Allowed values are "low", "medium", "high", "very-high"
 
-## Minimum Confidence Level
+### Minimum Confidence Level
 
 An integer value between 0 and 100 which specifies the minimum confidence level required for an indicator to be displayed.   For example, if you set the value to 55 then only indicators with a confidence of 55 or above will be displayed in the notification overlay.
 
-## Ignore Private IPs
+### Ignore Private IPs
 
 If set to true, private IPs (RFC 1918 addresses) will not be looked up (includes 127.0.0.1, 0.0.0.0, and 255.255.255.255)
 
