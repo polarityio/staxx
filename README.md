@@ -1,4 +1,4 @@
-# Polarity STAXX Integration (beta)
+# Polarity STAXX Integration
 
 ![image](https://img.shields.io/badge/status-beta-green.svg)
 
