@@ -6,6 +6,7 @@ Anomali STAXX gives you a free, easy way to subscribe to any STIX / TAXII feed. 
 
 To learn more about Anomali STAXX please see their official website at [https://www.anomali.com/platform/staxx](https://www.anomali.com/platform/staxx)
 
+> Note: This integration is currently in BETA.  Please see the [issues](https://github.com/polarityio/staxx/issues) page for known issues.
 
 | ![image](https://user-images.githubusercontent.com/306319/28879739-eda4e1ba-7770-11e7-9891-c520231a8a24.png)  |
 |---|
