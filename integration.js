@@ -93,6 +93,7 @@ function _doLookup(entityGroups, entityLookup, options, cb) {
                 Logger.trace({sessionToken:sessionToken}, 'Created new session');
                 if(err){
                     Logger.error({err:err}, 'Error logging in');
+                    // Cover the case where an error is returned but the session was still created.
                     if(err === ERROR_EXPIRED_SESSION){
                         cb('Invalid Username or Password');
                     }else{
