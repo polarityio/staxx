@@ -10,7 +10,7 @@ To learn more about Anomali STAXX please see their official website at [https://
 
 > Note: This integration is currently in BETA.  Please see the [issues](https://github.com/polarityio/staxx/issues) page for known issues.
 
-| ![image](https://user-images.githubusercontent.com/306319/28879739-eda4e1ba-7770-11e7-9891-c520231a8a24.png)  |
+| ![image](https://user-images.githubusercontent.com/306319/30605835-a4e51c5e-9d3d-11e7-8ada-9908bd118405.png)  |
 |---|
 |*Anomali STAXX Examples* |
 
