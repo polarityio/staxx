@@ -29,7 +29,7 @@ function createEntityGroups(entities, options, cb) {
     let entityGroups = [];
     let entityGroup = [];
 
-    Logger.trace(entities);
+    Logger.trace({entities:entities, options:options}, 'Entities and Options');
 
     entities.forEach(function (entity) {
         if (entityGroup.length >= MAX_ENTITIES_PER_LOOKUP) {
