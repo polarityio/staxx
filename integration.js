@@ -32,7 +32,7 @@ function createEntityGroups(entities, options, cb) {
     Logger.trace(entities);
 
     entities.forEach(function (entity) {
-        if (entityGroups.length >= MAX_ENTITIES_PER_LOOKUP) {
+        if (entityGroup.length >= MAX_ENTITIES_PER_LOOKUP) {
             entityGroups.push(entityGroup);
             entityGroup = [];
         }
