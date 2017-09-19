@@ -29,10 +29,10 @@ function createEntityGroups(entities, options, cb) {
     let entityGroups = [];
     let entityGroup = [];
 
-    Logger.trace(entities);
+    Logger.trace({entities:entities, options:options}, 'Entities and Options');
 
     entities.forEach(function (entity) {
-        if (entityGroups.length >= MAX_ENTITIES_PER_LOOKUP) {
+        if (entityGroup.length >= MAX_ENTITIES_PER_LOOKUP) {
             entityGroups.push(entityGroup);
             entityGroup = [];
         }
@@ -93,6 +93,7 @@ function _doLookup(entityGroups, entityLookup, options, cb) {
                 Logger.trace({sessionToken:sessionToken}, 'Created new session');
                 if(err){
                     Logger.error({err:err}, 'Error logging in');
+                    // Cover the case where an error is returned but the session was still created.
                     if(err === ERROR_EXPIRED_SESSION){
                         cb('Invalid Username or Password');
                     }else{
