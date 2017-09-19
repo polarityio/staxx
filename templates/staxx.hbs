@@ -1,4 +1,43 @@
-<div class="link-header">
-    <a href="https://staxx.anomali.com/detail/{{block.entity.value}}">View in STAXX <i class="btb bt-external-link"></i></a>
+<div class="details-container">
+    <div class="item">
+        <h5><i class="bts bt-fw bt-info-circle h5"></i> Info <a href="https://staxx.anomali.com/detail/{{block.entity.value}}">(View in STAXX)</a></h5>
+        <p>
+            Type: <b>{{details.type}} ({{details.itype}})</b>
+        </p>
+        <p>
+            Confidence: <b>{{details.confidence}}</b>
+        </p>
+        <p>
+            TLP: <b>{{details.tlpDisplay}}</b>
+        </p>
+        <p>
+            Severity: <span style="color:{{enrichedDetails.severityColor}}; font-weight: bold">{{details.severity}}</span>
+        </p>
+        <p>
+            Modified: <b>{{moment-time details.date_last}}</b>
+        </p>
+        <p>
+            Feed Name: <b>{{details.feed_name}}</b>
+        </p>
+        <p>
+            Source: <b>{{details.source}}</b>
+        </p>
+        <p>
+            Classification: <b>{{details.classification}}</b>
+        </p>
+        <p>
+            Detail: <b>{{details.detail}}</b>
+        </p>
+        {{#if details.actor}}
+            <p>
+                Actor: <b>{{details.actor}}</b>
+            </p>
+        {{/if}}
+        {{#if details.campaign}}
+            <p>
+                Campaign: <b>{{details.campaign}}</b>
+            </p>
+        {{/if}}
+        <div style="clear:both; margin-bottom: 5px;"></div>
+    </div>
 </div>
-{{object-to-table block.data.details}}
