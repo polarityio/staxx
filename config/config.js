@@ -71,7 +71,7 @@ module.exports = {
          * to STAXX servers without valid SSL certificates.  Please note that we do NOT recommending setting this
          * to false in a production environment.
          */
-        rejectUnauthorized: false
+        rejectUnauthorized: true
     },
     logging: {
         // directory is relative to the this integrations directory
