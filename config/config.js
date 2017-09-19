@@ -82,7 +82,7 @@ module.exports = {
         // the directory you specify is writable by the `polarityd:polarityd` user and group.
 
         //directoryPath: '/var/log/polarity-integrations',
-        level: 'trace',  //trace, debug, info, warn, error, fatal
+        level: 'info',  //trace, debug, info, warn, error, fatal
     },
     /**
      * Options that are displayed to the user/admin in the Polarity integration user-interface.  Should be structured
