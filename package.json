@@ -1,12 +1,12 @@
 {
   "main": "./integration.js",
   "name": "AnomaliSTAXX",
-  "version": "1.0.2-beta",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
-    "request": "^2.75",
-    "lodash": "^4.16",
-    "async": "2.1.4"
+    "request": "~2.88",
+    "lodash": "~4.17",
+    "async": "~2.6"
   },
   "devDependencies": {
     "chai": "~3.5",

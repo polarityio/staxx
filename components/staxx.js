@@ -9,7 +9,7 @@ polarity.export = PolarityComponent.extend({
             details.severityColor = '#FF8F00';
         }
 
-        if (details.confidence > 50) {
+        if (details.confidence > 75) {
             details.confidenceColor = '#388E3C';
         } else {
             details.confidenceColor = '';
