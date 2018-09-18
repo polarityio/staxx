@@ -10,7 +10,7 @@ To learn more about Anomali STAXX please see their official website at [https://
 
 > Note: This integration is currently in BETA.  Please see the [issues](https://github.com/polarityio/staxx/issues) page for known issues.
 
-| ![image](https://user-images.githubusercontent.com/306319/30605835-a4e51c5e-9d3d-11e7-8ada-9908bd118405.png)  |
+| ![image](https://user-images.githubusercontent.com/306319/45713411-fa911e80-bb5c-11e8-848f-f7d6427702ad.png)  |
 |---|
 |*Anomali STAXX Examples* |
 
@@ -44,6 +44,6 @@ If set to true, private IPs (RFC 1918 addresses) will not be looked up (includes
 
 ## Polarity
 
-Polarity is a memory-augmentation platform that improves and accelerates analyst decision making.  For more information about the Polarity platform please see: 
+Polarity is a memory-augmentation platform that improves and accelerates analyst decision making.  For more information about the Polarity platform please see:
 
 https://polarity.io/

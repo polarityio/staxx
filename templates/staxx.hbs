@@ -1,43 +1,52 @@
-<div class="details-container">
-    <div class="item">
-        <h5><i class="bts bt-fw bt-info-circle h5"></i> Info <a href="https://staxx.anomali.com/detail/{{block.entity.value}}">(View in STAXX)</a></h5>
-        <p>
-            Type: <b>{{details.type}} ({{details.itype}})</b>
-        </p>
-        <p>
-            Confidence: <b>{{details.confidence}}</b>
-        </p>
-        <p>
-            TLP: <b>{{details.tlpDisplay}}</b>
-        </p>
-        <p>
-            Severity: <span style="color:{{enrichedDetails.severityColor}}; font-weight: bold">{{details.severity}}</span>
-        </p>
-        <p>
-            Modified: <b>{{moment-time details.date_last}}</b>
-        </p>
-        <p>
-            Feed Name: <b>{{details.feed_name}}</b>
-        </p>
-        <p>
-            Source: <b>{{details.source}}</b>
-        </p>
-        <p>
-            Classification: <b>{{details.classification}}</b>
-        </p>
-        <p>
-            Detail: <b>{{details.detail}}</b>
-        </p>
-        {{#if details.actor}}
-            <p>
-                Actor: <b>{{details.actor}}</b>
-            </p>
-        {{/if}}
-        {{#if details.campaign}}
-            <p>
-                Campaign: <b>{{details.campaign}}</b>
-            </p>
-        {{/if}}
-        <div style="clear:both; margin-bottom: 5px;"></div>
-    </div>
+<h1 class="p-title">
+    {{fa-icon "info-circle" fixedWidth-true}} Info
+    <a class="p-link" href="https://staxx.anomali.com/detail/{{block.entity.value}}">&nbsp;(View in STAXX)</a>
+</h1>
+<div>
+    <span class="p-key">Type: </span>
+    <span class="p-value">{{details.type}} ({{details.itype}})</span>
 </div>
+<div>
+    <span class="p-key">Confidence: </span>
+    <span class="p-value" style="color:{{enrichedDetails.confidenceColor}}; font-weight: bold">{{details.confidence}}</span>
+</div>
+<div>
+    <span class="p-key">TLP: </span>
+    <span class="p-value">{{enrichedDetails.tlpDisplay}}</span>
+</div>
+<div>
+    <span class="p-key">Severity: </span>
+    <span class="p-value" style="color:{{enrichedDetails.severityColor}}; font-weight: bold">{{details.severity}}</span>
+</div>
+<div>
+    <span class="p-key">Modified: </span>
+    <span class="p-value">{{details.date_last}}</span>
+</div>
+<div>
+    <span class="p-key">Feed Name: </span>
+    <span class="p-value">{{details.feed_name}}</span>
+</div>
+<div>
+    <span class="p-key">Source: </span>
+    <span class="p-value">{{details.source}}</span>
+</div>
+<div>
+    <span class="p-key">Classification: </span>
+    <span class="p-value">{{details.classification}}</span>
+</div>
+<div>
+    <span class="p-key">Detail: </span>
+    <span class="p-value">{{details.detail}}</span>
+</div>
+{{#if details.actor}}
+    <div>
+        <span class="p-key">Actor: </span>
+        <span class="p-value">{{details.actor}}</span>
+    </div>
+{{/if}}
+{{#if details.campaign}}
+    <div>
+        <span class="p-key">Campaign: </span>
+        <span class="p-value">{{details.campaign}}</span>
+    </div>
+{{/if}}
