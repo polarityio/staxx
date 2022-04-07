@@ -6,7 +6,7 @@
   "dependencies": {
     "request": "~2.88",
     "lodash": "~4.17",
-    "async": "~2.6"
+    "async": "~3.2.2"
   },
   "devDependencies": {
     "chai": "~3.5",
