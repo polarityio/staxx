@@ -1,7 +1,7 @@
 {
-  "main": "./integration.js",
   "name": "AnomaliSTAXX",
-  "version": "1.1.0",
+  "version": "1.1.1",
+  "main": "./integration.js",
   "private": true,
   "dependencies": {
     "request": "~2.88",
