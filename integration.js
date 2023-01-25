@@ -1,6 +1,6 @@
 'use strict';
 
-let request = require('request');
+let request = require('postman-request');
 let _ = require('lodash');
 let config = require('./config/config');
 let async = require('async');
@@ -23,14 +23,14 @@ const SEVERITY_LEVELS_QUERY_FORMAT = [
 const ERROR_EXPIRED_SESSION = 'expired_session_error';
 const MAX_ENTITIES_PER_LOOKUP = 10;
 
-function createEntityGroups(entities, options, cb) {
+function createEntityGroups (entities, options, cb) {
   let entityLookup = {};
   let entityGroups = [];
   let entityGroup = [];
 
   Logger.trace({ entities: entities, options: options }, 'Entities and Options');
 
-  entities.forEach(function(entity) {
+  entities.forEach(function (entity) {
     if (entityGroup.length >= MAX_ENTITIES_PER_LOOKUP) {
       entityGroups.push(entityGroup);
       entityGroup = [];
@@ -58,7 +58,7 @@ function createEntityGroups(entities, options, cb) {
  * @param options
  * @param cb
  */
-function _doLookup(entityGroups, entityLookup, options, cb) {
+function _doLookup (entityGroups, entityLookup, options, cb) {
   Logger.info({ options: options }, 'Options');
   if (entityGroups.length > 0) {
     Logger.debug({ entityGroups: entityGroups }, 'Looking up Entity Groups');
@@ -73,27 +73,30 @@ function _doLookup(entityGroups, entityLookup, options, cb) {
         SEVERITY_LEVELS.indexOf(options.minimumSeverity)
       ).join(' OR ');
 
-      _lookupWithSessionToken(entityGroups, entityLookup, options, sessionToken, function(
-        err,
-        results
-      ) {
-        if (err && err === ERROR_EXPIRED_SESSION) {
-          // the session was expired so we need to retry
-          // remove the session and try again
-          Logger.debug({ err: err }, 'Clearing Session');
-          sessionManager.clearSession(options.username, options.password);
-          _doLookup(entityGroups, entityLookup, options, cb);
-        } else if (err) {
-          Logger.error({ err: err }, 'Error doing lookup');
-          cb(err);
-        } else {
-          cb(null, results);
+      _lookupWithSessionToken(
+        entityGroups,
+        entityLookup,
+        options,
+        sessionToken,
+        function (err, results) {
+          if (err && err === ERROR_EXPIRED_SESSION) {
+            // the session was expired so we need to retry
+            // remove the session and try again
+            Logger.debug({ err: err }, 'Clearing Session');
+            sessionManager.clearSession(options.username, options.password);
+            _doLookup(entityGroups, entityLookup, options, cb);
+          } else if (err) {
+            Logger.error({ err: err }, 'Error doing lookup');
+            cb(err);
+          } else {
+            cb(null, results);
+          }
         }
-      });
+      );
     } else {
       // we are not authenticated so we need to login and get a sessionToken
       Logger.trace('Session does not exist. Creating Session');
-      _login(options, function(err, sessionToken) {
+      _login(options, function (err, sessionToken) {
         Logger.trace({ sessionToken: sessionToken }, 'Created new session');
         if (err) {
           Logger.error({ err: err }, 'Error logging in');
@@ -116,15 +119,15 @@ function _doLookup(entityGroups, entityLookup, options, cb) {
   }
 }
 
-function _lookupWithSessionToken(entityGroups, entityLookup, options, sessionToken, cb) {
+function _lookupWithSessionToken (entityGroups, entityLookup, options, sessionToken, cb) {
   let lookupResults = [];
 
   async.map(
     entityGroups,
-    function(entityGroup, next) {
+    function (entityGroup, next) {
       _lookupEntity(entityGroup, entityLookup, sessionToken, options, next);
     },
-    function(err, results) {
+    function (err, results) {
       if (err) {
         cb(err);
         return;
@@ -149,7 +152,7 @@ function _lookupWithSessionToken(entityGroups, entityLookup, options, sessionTok
   );
 }
 
-function _handleRequestError(err, response, body, options, cb) {
+function _handleRequestError (err, response, body, options, cb) {
   if (err) {
     cb(
       _createJsonErrorPayload(
@@ -200,7 +203,7 @@ function _handleRequestError(err, response, body, options, cb) {
   cb(null, body);
 }
 
-function _login(options, done) {
+function _login (options, done) {
   //do the lookup
   requestOptions.uri = options.url + '/api/v1/login';
   requestOptions.method = 'POST';
@@ -210,8 +213,8 @@ function _login(options, done) {
   };
   requestOptions.json = true;
 
-  request(requestOptions, function(err, response, body) {
-    _handleRequestError(err, response, body, options, function(err, body) {
+  request(requestOptions, function (err, response, body) {
+    _handleRequestError(err, response, body, options, function (err, body) {
       if (err) {
         Logger.error({ err: err }, 'Error Authenticating with STAXX');
         done(err);
@@ -223,7 +226,7 @@ function _login(options, done) {
   });
 }
 
-function _lookupEntity(entitiesArray, entityLookup, apiToken, options, done) {
+function _lookupEntity (entitiesArray, entityLookup, apiToken, options, done) {
   //do the lookup
   requestOptions.uri = options.url + '/api/v1/intelligence';
   requestOptions.method = 'POST';
@@ -244,8 +247,8 @@ function _lookupEntity(entitiesArray, entityLookup, apiToken, options, done) {
 
   Logger.debug({ requestOptions: requestOptions }, 'Request Options for Lookup');
 
-  request(requestOptions, function(err, response, body) {
-    _handleRequestError(err, response, body, options, function(err, body) {
+  request(requestOptions, function (err, response, body) {
+    _handleRequestError(err, response, body, options, function (err, body) {
       if (err) {
         if (err === ERROR_EXPIRED_SESSION) {
           Logger.debug({ err: err }, 'Session Expired');
@@ -272,13 +275,13 @@ function _lookupEntity(entitiesArray, entityLookup, apiToken, options, done) {
  * @returns {{errors: *[]}}
  * @private
  */
-function _createJsonErrorPayload(msg, pointer, httpCode, code, title, meta) {
+function _createJsonErrorPayload (msg, pointer, httpCode, code, title, meta) {
   return {
     errors: [_createJsonErrorObject(msg, pointer, httpCode, code, title, meta)]
   };
 }
 
-function _createJsonErrorObject(msg, pointer, httpCode, code, title, meta) {
+function _createJsonErrorObject (msg, pointer, httpCode, code, title, meta) {
   let error = {
     detail: msg,
     status: httpCode.toString(),
@@ -299,7 +302,7 @@ function _createJsonErrorObject(msg, pointer, httpCode, code, title, meta) {
   return error;
 }
 
-function startup(logger) {
+function startup (logger) {
   Logger = logger;
 
   if (typeof config.request.cert === 'string' && config.request.cert.length > 0) {
@@ -332,7 +335,7 @@ function startup(logger) {
   // Logger.info({requestOptionsHash: requestOptionsHash}, 'requestOptionsHash after load');
 }
 
-function validateOptions(userOptions, cb) {
+function validateOptions (userOptions, cb) {
   let errors = [];
   if (
     typeof userOptions.url.value !== 'string' ||

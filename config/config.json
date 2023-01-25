@@ -1,0 +1,83 @@
+{
+  "name": "Anomali STAXX",
+  "acronym": "STX",
+  "defaultColor": "light-blue",
+  "description": "Anomali STAXX integration for IP addresses and hashes",
+  "entityTypes": ["IPv4", "IPv6", "hash", "domain"],
+  "styles": ["./styles/staxx.less"],
+  "block": {
+    "component": {
+      "file": "./components/staxx.js"
+    },
+    "template": {
+      "file": "./templates/staxx.hbs"
+    }
+  },
+  "request": {
+    "cert": "",
+    "key": "",
+    "passphrase": "",
+    "ca": "",
+    "proxy": "",
+    "rejectUnauthorized": true
+  },
+  "logging": {
+    "level": "info"
+  },
+  "options": [
+    {
+      "key": "url",
+      "name": "Anomali STAXX Server URL",
+      "description": "The URL for your STAXX server which should include the schema (i.e., http, https) and port if required",
+      "default": "",
+      "type": "text",
+      "userCanEdit": false,
+      "adminOnly": true
+    },
+    {
+      "key": "username",
+      "name": "Username",
+      "description": "The username of the STAXX user you want the integration to authenticate as",
+      "default": "",
+      "type": "text",
+      "userCanEdit": true,
+      "adminOnly": false
+    },
+    {
+      "key": "password",
+      "name": "Password",
+      "description": "The password for the provided username you want the integration to authenticate as",
+      "default": "",
+      "type": "password",
+      "userCanEdit": true,
+      "adminOnly": false
+    },
+    {
+      "key": "minimumSeverity",
+      "name": "Minimum Severity Level",
+      "description": "The minimum severity level required for indicators to be displayed [low, medium, high, very-high]",
+      "default": "low",
+      "type": "text",
+      "userCanEdit": true,
+      "adminOnly": false
+    },
+    {
+      "key": "minimumConfidence",
+      "name": "Minimum Confidence Level",
+      "description": "The minimum confidence level required for indicators to be displayed",
+      "default": 0,
+      "type": "number",
+      "userCanEdit": true,
+      "adminOnly": false
+    },
+    {
+      "key": "ignorePrivateIps",
+      "name": "Ignore Private IPs",
+      "description": "If set to true, private IPs (RFC 1918 addresses) will not be looked up (includes 127.0.0.1, 0.0.0.0, and 255.255.255.255)",
+      "default": true,
+      "type": "boolean",
+      "userCanEdit": false,
+      "adminOnly": true
+    }
+  ]
+}
