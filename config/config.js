@@ -24,7 +24,7 @@ module.exports = {
    * @optional
    */
   description: 'Anomali STAXX integration for IP addresses and hashes',
-  entityTypes: ['IPv4', 'IPv6', 'hash', 'domain'],
+  entityTypes: ['IPv4', 'IPv6', 'MD5', 'SHA1', 'SHA256', 'domain'],
   /**
    * An array of style files (css or less) that will be included for your integration. Any styles specified in
    * the below files can be used in your custom template.
@@ -64,7 +64,7 @@ module.exports = {
     ca: '',
     // An HTTP proxy to be used. Supports proxy Auth with Basic Auth, identical to support for
     // the url parameter (by embedding the auth info in the uri)
-    proxy: ""
+    proxy: ''
   },
   logging: {
     // directory is relative to the this integrations directory
