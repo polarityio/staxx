@@ -1,0 +1,19 @@
+{
+  "root": {
+    "path": "",
+    "on_null": "return_empty"
+  },
+  "pipeline": [
+    {"op": "copy", "from": "confidence", "to": "reduced_results.confidence"},
+    {"op": "copy", "from": "type", "to": "reduced_results.type"},
+    {"op": "copy", "from": "feed_name", "to": "reduced_results.feed_name"},
+    {"op": "copy", "from": "source", "to": "reduced_results.source"},
+    {"op": "copy", "from": "classification", "to": "reduced_results.classification"},
+    {"op": "copy", "from": "actor", "to": "reduced_results.actor"},
+    {"op": "copy", "from": "campaign", "to": "reduced_results.campaign"},
+    {"op": "prune", "strategy": "empty_values", "target": "reduced_results"}
+  ],
+  "output": {
+    "result": "$working.reduced_results"
+  }
+}

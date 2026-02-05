@@ -1,0 +1,36 @@
+{
+  "indicator": "malicious-domain.example.com",
+  "itype": "mal_domain",
+  "type": "C2",
+  "severity": "high",
+  "confidence": 85,
+  "feed_name": "AlienVault OTX - Malware Domains",
+  "source": "AlienVault",
+  "classification": "malware",
+  "detail": "Domain associated with Emotet malware campaign targeting financial institutions",
+  "date_last": "2024-01-15T14:32:00Z",
+  "tlp": "tlp:amber",
+  "actor": "TA542",
+  "campaign": "Emotet 2024 Campaign",
+  "raw_indicator": "malicious-domain.example.com",
+  "status": "active",
+  "tags": ["banking-trojan", "emotet", "malware"],
+  "threat_type": "malicious-activity",
+  "feed_id": 12345,
+  "import_session_id": "abc-123-def-456",
+  "created_ts": "2024-01-10T08:15:00Z",
+  "modified_ts": "2024-01-15T14:32:00Z",
+  "expiration_ts": "2024-02-15T14:32:00Z",
+  "is_active": true,
+  "asn": "AS15169",
+  "country": "US",
+  "org": "Example Hosting Provider",
+  "rdns": "mail.malicious-domain.example.com",
+  "meta": {
+    "detail2": "Additional context about the threat",
+    "references": [
+      "https://otx.alienvault.com/pulse/12345",
+      "https://www.virustotal.com/gui/domain/malicious-domain.example.com"
+    ]
+  }
+}

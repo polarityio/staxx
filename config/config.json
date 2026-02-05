@@ -4,8 +4,17 @@
   "acronym": "STX",
   "defaultColor": "light-blue",
   "description": "Anomali STAXX integration for IP addresses and hashes",
-  "entityTypes": ["IPv4", "IPv6", "MD5", "SHA1", "SHA256", "domain"],
-  "styles": ["./styles/staxx.less"],
+  "entityTypes": [
+    "IPv4",
+    "IPv6",
+    "MD5",
+    "SHA1",
+    "SHA256",
+    "domain"
+  ],
+  "styles": [
+    "./styles/staxx.less"
+  ],
   "block": {
     "component": {
       "file": "./components/staxx.js"
@@ -72,5 +81,10 @@
       "userCanEdit": false,
       "adminOnly": true
     }
-  ]
+  ],
+  "reducer": {
+    "details": {
+      "file": "./reducers/details.json"
+    }
+  }
 }
